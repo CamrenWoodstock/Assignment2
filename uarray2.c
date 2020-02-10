@@ -1,10 +1,13 @@
+
+
 UArray2_T UArray2_new(int height, int width, int size) {
   UArray2_T grid;
   NEW(grid);
+  //Initialize the Grid
   grid->height = height;
   grid->width = width;
   grid->size = size;
-  asser(size > 0);
+  assert(size > 0);
   if ((height < 1) || (length < 1)) grid->rows = NULL;
   else {
     grid->rows = Array_T_new(height, sizeof(Array_T));
