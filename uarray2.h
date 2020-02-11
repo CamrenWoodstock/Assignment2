@@ -2,14 +2,8 @@
 #define UARRAY2_INCLUDED
 #include "array.h"
 #define T UArray2_T
+typedef struct T *T;
 
-
-typedef struct T {
-  int height;
-  int width;
-  int size;
-  UArray_T rows;
-} 
 extern T UArray2_new(int length, int width, int size);
 extern void UArray2_free(T *grid);
 extern int UArray2_length(T grid);
