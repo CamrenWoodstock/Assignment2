@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "uarray2.h"
-#include "uarray.h"
 #include "assert.h"
 #include "mem.h"
 
@@ -28,7 +27,7 @@ extern void UArray2_free(UArray2_T *grid) {
   Array_free(grid->rows);
 }
 
-extern void* UArray2_at(UArray2_T grid, int height, int width) {
+extern void* UArray2_at(UArray2_T grid, int width, int height) {
   assert(grid);
   assert(height >= 0 && height < grid->height);
   assert(width >= 0 && width < grid->width);
@@ -53,10 +52,19 @@ extern int UArray2_size(UArray2_T grid) {
                 
 extern void UArray2_map_col_major(UArray2_T grid,
 apply(int xIndex, int yIndex, UArray2_T grid, void *indexPtr, void *cl), void *cl); {
-  
+  for(int y = 0; y < grid->width; y++) {
+    for(int x = 0; x < grid->height; x++) {
+      apply(UArray2_at(grid, x, y), cl, x, y, grid);
+    }
+  }
 }
                             
 extern void UArray2_map_row_major(UArray2_T grid, 
 apply(int xIndex, int yIndex, Uarray2_T grid, void *indexPtr, void *cl), void *cl); {
-  
+  for(int y = 0; y < grid->width; y++) {
+    for(int x = 0; x < grid->height; x++) {
+      apply((UArray2_at(grid, x, y), cl, x, y, grid);
+    }
+  }
 }
+
