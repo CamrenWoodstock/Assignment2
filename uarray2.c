@@ -3,8 +3,9 @@
 #include "uarray2.h"
 #include "assert.h"
 #include "mem.h"
+#Define T UArray2_T
 
-extern UArray2_T UArray2_new(int height, int width, int size) {
+extern T UArray2_new(int height, int width, int size) {
   UArray2_T grid;
   NEW(grid);
   //Initialize the Grid
